@@ -22,8 +22,9 @@ body {
 }
 
 .container {
+  position: fixed;
   width: 100%;
-  max-width: 1164px;
+  max-width: 1176px;
   overflow: hidden;
   margin: 0 auto;
   display: flex;
