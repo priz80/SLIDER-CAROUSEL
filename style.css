@@ -1,0 +1,54 @@
+
+
+body {
+  background: #000000ce;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+width: 100%;
+max-width: 1172px;
+overflow: hidden;
+margin: 0 auto;
+}
+
+.slider-container {
+  display: flex;
+  gap: 20px;
+  /* transition: 0.5s; */
+}
+
+
+.slider {
+  display: flex;
+  gap: 20px;
+}
+
+.slider > img {
+    border: 1px solid green;
+    border-radius: 5px;
+    max-width: 567px;
+}
+
+.button-block {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+button {
+    min-width: 160px;
+    height: 30px;
+    background: transparent;
+    border-radius: 6px;
+    color: aliceblue;
+    border: 1px solid white;
+    margin-top: 20px;
+}
+
+.slider::-webkit-scrollbar {
+  display: none; /* Скрываем полосу прокрутки */
+}
