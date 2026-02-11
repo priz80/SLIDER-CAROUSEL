@@ -28,9 +28,10 @@ body {
 .container {
   position: relative;
   width: 100%;
-  max-width: 1180px;
+  max-width: 1170px;
   overflow: hidden;
   margin: 0 auto;
+  display: flex;
 }
 
 .slider-container {
