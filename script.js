@@ -1,56 +1,47 @@
-const Slider = document.querySelector('.slider');
-const Left = document.getElementById('left');
-const Right = document.getElementById('right');
-// Начальное позиция слайдера
-let offset = -672;
-// Шаг смещения слайдера при клике
-const step = 674;
-// Время аннимации при прокрутке
-let stepTime = 0.7;
-//Сброс аннимации при масштабировании
-Slider.style.transition = '0s';
-// Устанавливаем начальное положение
-Slider.style.transform = `translateX(${offset}px)`;
-console.log(offset)
-// Обрабатываем клик в лево
-Left.addEventListener('click', () => {
-    offset += step;
-    Slider.style.transition = `${stepTime}s`;
-    Slider.style.transform = `translateX(${offset}px)`;
-console.log(offset)
-    // Если достигли начального "края", мгновенно прыгаем в конец
-    if (offset == 2) {
-        Slider.style.transition = '0s'; // без анимации
-        offset = -5390;
-        Slider.style.transform = `translateX(${offset}px)`;
+// Элементы
+const slider = document.querySelector('.slider');
+const btnLeft = document.getElementById('left');
+const btnRight = document.getElementById('right');
 
-        // включаем анимацию и делаем шаг в лево
-        requestAnimationFrame(() => {
-            Slider.style.transition = `${stepTime}s`;
-            offset += step;
-            Slider.style.transform = `translateX(${offset}px)`;
-        });
-        return;
-    }
-});
+// Параметры
+const slideWidth = 567;
+const gap = 104;
+const step = slideWidth + gap; // 671px
+let offset = -step; // начальное положение
 
-Right.addEventListener('click', () => {
-    offset -= step;
-    Slider.style.transition = '0.7s';
-    Slider.style.transform = `translateX(${offset}px)`;
+// Время анимации
+const transitionTime = 0.7;
+
+// Установка начального положения
+slider.style.transition = '0s';
+slider.style.transform = `translateX(${offset}px)`;
+
+// Логика движения
+function moveSlider(direction) {
+  // direction: -1 (вправо), +1 (влево)
+  offset -= direction * step;
+  slider.style.transition = `${transitionTime}s`;
+  slider.style.transform = `translateX(${offset}px)`;
 console.log(offset)
-    // Если достигли конца, мгновенно прыгаем в начало
-    if (offset == -5390) {
-        Slider.style.transition = '0s'; // без анимации
-        offset = 2;
-        Slider.style.transform = `translateX(${offset}px)`;
+  // Бесконечная прокрутка
+  if (offset == -5368) {
+    // Прыжок в начало (без анимации)
+    setTimeout(() => {
+      slider.style.transition = '0s';
+      offset = -671;
+      slider.style.transform = `translateX(${offset}px)`;
+    }, transitionTime * 1000);
+  } else if (offset == 0) {
+    // Прыжок в конец
+    setTimeout(() => {
+      slider.style.transition = '0s';
+      offset = -4697;
+      slider.style.transform = `translateX(${offset}px)`;
+    }, transitionTime * 1000);
+  }
+}
 
-        // После прыжка включаем аннимацию и делаем шаг вправо
-        requestAnimationFrame(() => {
-            Slider.style.transition = '0.7s';
-            offset -= step;
-            Slider.style.transform = `translateX(${offset}px)`;
-        });
-        return;
-    }
-});
+// Обработчики кликов
+btnLeft.addEventListener('click', () => moveSlider(1));  // ←
+btnRight.addEventListener('click', () => moveSlider(-1)); // →
+
