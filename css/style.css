@@ -1,0 +1,52 @@
+body {
+  background: #000000ce;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.contant {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-width: 1231px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1163px;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+
+
+
+@media (max-width: 1280px) {
+  .container {
+    display: none;
+  }
+  .button-block {
+    display: none;
+  }
+
+  .contant::before {
+    content: "Zoom out please";
+    text-transform: uppercase;
+    color: red;
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+  }
+}
