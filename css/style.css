@@ -123,6 +123,7 @@ button:hover {
     right: 0;
     padding-left: 0;
     transform: translateY(0);
+    top: 40%;
 }
 
   .slide {
