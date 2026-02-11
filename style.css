@@ -40,13 +40,14 @@ margin: 0 auto;
 }
 
 button {
-    min-width: 160px;
-    height: 30px;
-    background: transparent;
-    border-radius: 6px;
+    min-width: 80px;
+    height: 80px;
+    background: green;
+    border-radius: 100%;
     color: aliceblue;
-    border: 1px solid white;
+    border: 1px solid green;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .slider::-webkit-scrollbar {
