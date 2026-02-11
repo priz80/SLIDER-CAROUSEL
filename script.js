@@ -35,9 +35,9 @@ Right.addEventListener('click', () => {
     Slider.style.transform = `translateX(${offset}px)`;
     console.log(offset);
     // Если достигли конца, мгновенно прыгаем в начало
-    if (offset == -4716) {
+    if (offset == -5390) {
         Slider.style.transition = '0s'; // мгновенно, без анимации
-        offset = 2; // "невидимый" прыжок назад
+        offset = -672; // "невидимый" прыжок назад
         Slider.style.transform = `translateX(${offset}px)`;
 
         // После прыжка включаем плавность и делаем шаг
