@@ -1,0 +1,52 @@
+.button-block {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  z-index: 10;
+  height: 80px;
+  align-items: center;
+}
+
+button {
+  width: 70px;
+  height: 70px;
+  background: transparent;
+  border-radius: 50%;
+  border: 1.5px solid #153630;
+  box-shadow: 0 0 106px 0 rgba(46, 236, 197, 0.1);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  min-width: 80px;
+  min-height: 80px;
+  padding: 0;
+}
+
+.ball {
+  min-width: 70px;
+  min-height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 106px 0 rgba(46, 236, 197, 0.1);
+  background: linear-gradient(166deg, #19201f 0%, #323939 100%);
+  border: 1.5px solid rgba(46, 236, 197, 0.5);
+  color: rgba(46, 236, 197, 0.5);
+}
+
+.ball:hover {
+  min-width: 70px;
+  min-height: 70px;
+}
+
+@media (max-width: 1280px) {
+  .button-block {
+    display: none;
+  }
+}
