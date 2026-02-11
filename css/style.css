@@ -41,13 +41,27 @@ body {
 }
 
 /* Фоновые изображения */
-.slide1 { background-image: url('../img/slide1-small.png'); }
-.slide2 { background-image: url('../img/slide2-small.png'); }
-.slide3 { background-image: url('../img/slide3-small.png'); }
-.slide4 { background-image: url('../img/slide4-small.png'); }
-.slide5 { background-image: url('../img/slide5-small.png'); }
-.slide6 { background-image: url('../img/slide6-small.png'); }
-.slide7 { background-image: url('../img/slide7-small.png'); }
+.slide1 {
+  background-image: url("../img/slide1.png");
+}
+.slide2 {
+  background-image: url("../img/slide2.png");
+}
+.slide3 {
+  background-image: url("../img/slide3.png");
+}
+.slide4 {
+  background-image: url("../img/slide4.png");
+}
+.slide5 {
+  background-image: url("../img/slide5.png");
+}
+.slide6 {
+  background-image: url("../img/slide6.png");
+}
+.slide7 {
+  background-image: url("../img/slide7.png");
+}
 
 /* Кнопки навигации */
 .button-block {
@@ -99,4 +113,51 @@ button:hover {
 .ball:hover {
   width: 75px;
   height: 75px;
+}
+
+@media (max-width: 992px) {
+  .slider-container {
+    position: absolute;
+    max-width: 924px;
+    overflow: hidden;
+    right: 0;
+    padding-left: 0;
+    transform: translateY(0);
+}
+
+  .slide {
+    min-width: 258px;
+    height: 153px;
+  }
+
+  .slide1 {
+    background-image: url("../img/slide1-small.png");
+  }
+  .slide2 {
+    background-image: url("../img/slide2-small.png");
+  }
+  .slide3 {
+    background-image: url("../img/slide3-small.png");
+  }
+  .slide4 {
+    background-image: url("../img/slide4-small.png");
+  }
+  .slide5 {
+    background-image: url("../img/slide5-small.png");
+  }
+  .slide6 {
+    background-image: url("../img/slide6-small.png");
+  }
+  .slide7 {
+    background-image: url("../img/slide7-small.png");
+  }
+
+  .button-block {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+    gap: 60px;
+    padding-top: 60px;
+  }
 }
