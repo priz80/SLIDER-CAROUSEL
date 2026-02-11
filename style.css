@@ -3,12 +3,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* overflow: hidden; */
 }
-
-/* * {
-    outline: auto;
-} */
 
 * {
   margin: 0;
@@ -18,20 +13,22 @@ body {
 .contant {
   position: relative;
   width: 100%;
+  height: 100vh;
   max-width: 1232px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  padding-top: 50px;
+  align-items: center;
 }
 
 .container {
-  position: relative;
   width: 100%;
   max-width: 1170px;
   overflow: hidden;
   margin: 0 auto;
   display: flex;
+  align-items: center;
+  height: 100vh;
 }
 
 .slider-container {
@@ -44,11 +41,11 @@ body {
   gap: 20px;
 }
 
-.slider > img {
+/* .slider > img {
   border: 1px solid green;
   border-radius: 5px;
   max-width: 567px;
-}
+} */
 
 .button-block {
   position: absolute;
@@ -56,7 +53,6 @@ body {
   width: 100%;
   justify-content: space-between;
   z-index: 10;
-  top: 45%;
   height: 80px;
   align-items: center;
 }
@@ -98,22 +94,21 @@ button:hover {
   min-height: 70px;
 }
 
-
 @media (max-width: 1280px) {
-    .container {
-        display: none;
-    }
-.button-block {
+  .container {
     display: none;
-}
+  }
+  .button-block {
+    display: none;
+  }
 
-    .contant::before {
-        content: 'Zoom out please';
-        text-transform: uppercase;
-        color: red;
-        font-family: Arial, sans-serif;
-        font-weight: 800;
-        text-align: center;
-        padding: 180px;
-    }
+  .contant::before {
+    content: "Zoom out please";
+    text-transform: uppercase;
+    color: red;
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    /* text-align: center; */
+    /* padding: 180px; */
+  }
 }
