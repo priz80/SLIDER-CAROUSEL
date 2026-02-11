@@ -9,7 +9,7 @@
 }
 
 .slide {
-  min-width: 567px;
+  width: 567px;
   height: 363px;
   border: 1px solid green;
   border-radius: 5px;
