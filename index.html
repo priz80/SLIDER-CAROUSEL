@@ -1,17 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>slider-carousel</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/style-slide.css">
-    <link rel="stylesheet" href="./css/button.css">
-</head>
-<body>
-    <div class="contant">
-        <div class="container">
-            <div class="slider-container">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style-slide.css" />
+    <link rel="stylesheet" href="./css/button.css" />
+  </head>
+  <body>
+        <div class="content">
+                <div class="slider-container">
                 <div class="slider">
                     <div class="slide slide7"></div>
                     <div class="slide slide1"></div>
@@ -24,15 +23,16 @@
                     <div class="slide slide1"></div>
                     <div class="slide slide2"></div>
                 </div>
-            </div>
-            
+                <div class="button-block">
+                <button id="left">
+                    <div class="ball"><img src="./img/arrowleft.svg" alt="" /></div>
+                </button>
+                <button id="right">
+                    <div class="ball"><img src="./img/arrowright.svg" alt="" /></div>
+                </button>
+                </div>
+                </div>  
         </div>
-        <div class="button-block">
-                <button id="left"><div class="ball"><img src="./img/arrowleft.svg" alt=""></div></button>
-                <button id="right"><div class="ball"><img src="./img/arrowright.svg" alt=""></div></button>
-            </div>
-    </div>
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
