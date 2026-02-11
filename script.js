@@ -1,10 +1,14 @@
 const Slider = document.querySelector('.slider');
 const Left = document.getElementById('left');
 const Right = document.getElementById('right');
+// Начальное положение слайдера
 let offset = -672;
+// Шаг смещения при клике
 const step = 674;
+// Время аннимации при прокрутке
 let stepTime = 0.7;
-
+//Сброс аннимации при масштабировании
+Slider.style.transition = '0s';
 // Устанавливаем начальное положение
 Slider.style.transform = `translateX(${offset}px)`;
 
