@@ -2,7 +2,7 @@ const Slider = document.querySelector('.slider-container');
 const Left = document.getElementById('left');
 const Right = document.getElementById('right');
 let offset = -588;
-const step = 590;
+const step = 589;
 let stepTime = 0.7;
 
 // Устанавливаем начальное положение
@@ -14,9 +14,9 @@ Left.addEventListener('click', () => {
     Slider.style.transform = `translateX(${offset}px)`;
 console.log(offset)
     // Если достигли начального "края", мгновенно прыгаем в конец
-    if (offset == 2) {
+    if (offset == 1) {
         Slider.style.transition = '0s'; // мгновенно
-        offset = -4718;
+        offset = -4711;
         Slider.style.transform = `translateX(${offset}px)`;
 
         // Следующий кадр: включаем анимацию
@@ -35,9 +35,9 @@ Right.addEventListener('click', () => {
     Slider.style.transform = `translateX(${offset}px)`;
     console.log(offset);
     // Если достигли конца, мгновенно прыгаем в начало
-    if (offset == -4718) {
+    if (offset == -4711) {
         Slider.style.transition = '0s'; // мгновенно, без анимации
-        offset = 2; // "невидимый" прыжок назад
+        offset = 1; // "невидимый" прыжок назад
         Slider.style.transform = `translateX(${offset}px)`;
 
         // После прыжка включаем плавность и делаем шаг
