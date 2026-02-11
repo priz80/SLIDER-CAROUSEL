@@ -28,7 +28,7 @@ body {
 .container {
   position: relative;
   width: 100%;
-  max-width: 1168px;
+  max-width: 1180px;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -98,10 +98,14 @@ button:hover {
 }
 
 
-@media (max-width: 1180px) {
+@media (max-width: 1280px) {
     .container {
         display: none;
     }
+.button-block {
+    display: none;
+}
+
     .contant::before {
         content: 'Zoom out please';
         text-transform: uppercase;
