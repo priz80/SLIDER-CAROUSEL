@@ -5,7 +5,7 @@ const btnRight = document.getElementById('right');
 
 let slideWidth, gap, step, totalUniqueSlides, trackLength, offset;
 const transitionTime = 0.7; // секунды
-
+let isAnimating = false;
 // Количество уникальных слайдов (slide1 ... slide7)
 totalUniqueSlides = 8;
 
@@ -34,6 +34,8 @@ function updateConfig() {
 
 // Логика движения
 function moveSlider(direction) {
+    if (isAnimating) return;
+    isAnimating = true;
   // direction: +1 ←, -1 →
   offset -= direction * step;
 
@@ -61,6 +63,11 @@ function moveSlider(direction) {
       slider.style.transform = `translateX(${offset}px)`;
     }, transitionTime * 1000);
   }
+
+   setTimeout(() => {
+        isAnimating = false;
+    }, 700); // ← ставь сюда длительность анимации из CSS/JS
+
 }
 
 // Обработчики кликов
