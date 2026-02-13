@@ -3,83 +3,82 @@ const slider = document.querySelector('.slider');
 const btnLeft = document.getElementById('left');
 const btnRight = document.getElementById('right');
 
-let slideWidth, gap, step, totalUniqueSlides, trackLength, offset;
-const transitionTime = 0.7; // секунды
+// Конфигурация
+const config = {
+  totalUniqueSlides: 8,
+  transitionTime: 0.7, // секунды
+};
+
+let slideWidth, gap, step, trackLength, offset;
 let isAnimating = false;
-// Количество уникальных слайдов (slide1 ... slide7)
-totalUniqueSlides = 8;
 
-// Функция: обновить конфигурацию под текущий размер экрана
-function updateConfig() {
+// Настройки под размер экрана
+const getBreakpointConfig = () => {
   const innerWidth = window.innerWidth;
+  return innerWidth >= 992
+    ? { slideWidth: 567, gap: 104 }
+    : { slideWidth: 258, gap: 37 };
+};
 
-  if (innerWidth >= 992) {
-    slideWidth = 567;
-    gap = 104;
-  } else {
-    slideWidth = 258;
-    gap = 37;
-  }
-
+// Обновление параметров слайдера
+function updateConfig() {
+  const { slideWidth: width, gap: gapSize } = getBreakpointConfig();
+  slideWidth = width;
+  gap = gapSize;
   step = slideWidth + gap;
-  trackLength = totalUniqueSlides * step;
-  offset = -step; // начальное смещение — один слайд влево
+  trackLength = config.totalUniqueSlides * step;
+  offset = -step; // начальное смещение
 
   // Применяем без анимации
   slider.style.transition = '0s';
   slider.style.transform = `translateX(${offset}px)`;
-
-  console.log(`[Config] Width: ${innerWidth}, Slide: ${slideWidth}, Gap: ${gap}, Step: ${step}`);
 }
 
-// Логика движения
+// Перемещение слайдера
 function moveSlider(direction) {
-    if (isAnimating) return;
-    isAnimating = true;
+  if (isAnimating) return;
+  isAnimating = true;
+
   // direction: +1 ←, -1 →
   offset -= direction * step;
 
-  slider.style.transition = `${transitionTime}s`;
+  // Анимация
+  slider.style.transition = `${config.transitionTime}s`;
   slider.style.transform = `translateX(${offset}px)`;
 
-  console.log('Current offset:', offset);
-
-  // Бесконечная прокрутка
-
-  // Если ушли слишком влево
-  if (offset <= -trackLength) {
-    setTimeout(() => {
-      slider.style.transition = '0s';
+  // Бесконечная прокрутка — коррекция после анимации
+  const handleInfiniteScroll = () => {
+    if (offset <= -trackLength) {
+      // Сброс влево
       offset = -step;
-      slider.style.transform = `translateX(${offset}px)`;
-    }, transitionTime * 1000);
-  }
+    } else if (offset >= 0) {
+      // Сброс вправо
+      offset = -trackLength + step;
+    } else {
+      return; // Не требуется коррекция
+    }
 
-  // Если ушли вправо (до 0 или больше)
-  else if (offset >= 0) {
-    setTimeout(() => {
-      slider.style.transition = '0s';
-      offset = -trackLength + step; // = -trackLength + step
-      slider.style.transform = `translateX(${offset}px)`;
-    }, transitionTime * 1000);
-  }
+    // Мгновенный переход без анимации
+    slider.style.transition = '0s';
+    slider.style.transform = `translateX(${offset}px)`;
+  };
 
-   setTimeout(() => {
-        isAnimating = false;
-    }, 700); // ← ставь сюда длительность анимации из CSS/JS
-
+  // Ожидание окончания анимации
+  setTimeout(() => {
+    handleInfiniteScroll();
+    isAnimating = false;
+  }, config.transitionTime * 1000);
 }
 
 // Обработчики кликов
 btnLeft.addEventListener('click', () => moveSlider(1));  // ← Назад
 btnRight.addEventListener('click', () => moveSlider(-1)); // → Вперёд
 
-// Инициализация при загрузке
+// Инициализация
 updateConfig();
 
-// Пересчёт при изменении размера окна
+// Ресайз с оптимизацией
 window.addEventListener('resize', () => {
-  // Добавляем задержку, чтобы избежать множества вызовов
   clearTimeout(window.resizeTimeout);
   window.resizeTimeout = setTimeout(() => {
     updateConfig();
