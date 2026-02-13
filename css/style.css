@@ -36,7 +36,7 @@ body {
   height: 363px;
   border-radius: 15px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   border: 1px solid green;
 }
 
@@ -92,9 +92,7 @@ button {
 }
 
 button:hover {
-  width: 90px;
-  height: 90px;
-  margin: -10px;
+  transform: scale(1.23);
 }
 
 .ball {
@@ -110,10 +108,7 @@ button:hover {
   transition: all 0.3s ease;
 }
 
-.ball:hover {
-  width: 75px;
-  height: 75px;
-}
+
 
 @media (max-width: 991px) {
   .slider-container {
