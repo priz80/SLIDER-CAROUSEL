@@ -82,7 +82,7 @@ button {
   height: 70px;
   background: transparent;
   border: 1.5px solid #153630;
-  border-radius: 50%;
+  border-radius: 49%;
   box-shadow: 0 0 106px 0 rgba(46, 236, 197, 0.1);
   cursor: pointer;
   display: flex;
@@ -101,7 +101,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 49%;
   background: linear-gradient(166deg, #19201f 0%, #323939 100%);
   border: 1.5px solid rgba(46, 236, 197, 0.5);
   box-shadow: 0 0 106px 0 rgba(46, 236, 197, 0.1);
