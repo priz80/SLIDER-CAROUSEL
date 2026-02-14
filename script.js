@@ -5,7 +5,7 @@ const btnRight = document.getElementById('right');
 
 // Конфигурация
 const config = {
-  totalUniqueSlides: 8,
+  totalUniqueSlides: 9,
   transitionTime: 0.7, // секунды
 };
 
